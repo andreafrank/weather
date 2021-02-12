@@ -22,7 +22,7 @@ const CurrentWeather  = () => {
   	};
 
  	const getWeather = async (lat, lon) => {     
-	    const api_call = await fetch(`//api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=439e167525fbc2afd365dc0d9d0f40e5&units=metric`);
+	    const api_call = await fetch(`//api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.API_KEY}&units=metric`);
 	    const data = await api_call.json();
 	    
 	    setLat(lat);
