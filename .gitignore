@@ -1,4 +1,5 @@
 /apikeys.env
+/.DS_Store
 
 # Logs
 logs
