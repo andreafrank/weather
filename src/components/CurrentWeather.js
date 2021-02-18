@@ -25,8 +25,8 @@ const CurrentWeather  = () => {
 			params: { query: term }
 		});
 		setImage(response.data.results[0])
-		const first_item = response.data.results[0]
 
+		const first_item = response.data.results[0]
 		const url = first_item.urls.regular;
 
 		setImgurl(url);
@@ -49,7 +49,7 @@ const CurrentWeather  = () => {
  	const getWeather = async (lat, lon) => { 
  		getCity(lat, lon); 
 
-	    const api_call = await fetch(`//api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}=metric`);
+	    const api_call = await fetch(`//api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`);
 	    const data = await api_call.json();
 	    
 	    setLat(lat);
@@ -86,31 +86,28 @@ const CurrentWeather  = () => {
 
     if (city) {
       	return (
-	        <ul> 
-	        	<div>  
-		          	<li> {city} </li>
-		            <li> {tempC} &deg;C </li>
-		           	<li> feels like {feels_like.toFixed(0)} &deg;C </li>          
-		            <li> {tempF} &deg;F </li> 
-		            <li> feels like {(feels_like * 1.8 + 32).toFixed(0)} &deg;F </li>          
-		            <li> humidity: {humidity}% </li>
-		            <li> {description} </li>        
-	          	</div> 
-
-	        	<div>
-		            <li>{sunrise}</li>
-		            <li>{sunset}</li>
-	        	</div> 
-	        	<div>
-	        		<img 
-						src={imgurl}
-						alt={description}
-	        		/>
-	        	</div> 
-	        </ul>
+	        <div style={{
+	        	height: `100vh`,
+	        	backgroundImage: `url(${imgurl})`,
+	        	backgroundPosition: `center`,
+	        	backgroundRepeat: `noRepeat`,
+	        	backgroundSize: `cover`,
+	        }}>
+	       		<ul>  
+			        <li> {city} </li>
+			        <li> {tempC} &deg;C </li>
+			        <li> feels like {feels_like.toFixed(0)} &deg;C </li>          
+			        <li> {tempF} &deg;F </li> 
+			        <li> feels like {(feels_like * 1.8 + 32).toFixed(0)} &deg;F </li>          
+			        <li> humidity: {humidity}% </li>
+			        <li> {description} </li>        
+			        <li>sunrise: {sunrise}</li>
+			        <li>sunset: {sunset}</li>
+		        </ul>
+	        </div>
     	)
     } else {
-      	return "put a spinner here";
+      	return "please wait. retrieving your location...";
     }   
 }
 
