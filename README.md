@@ -7,7 +7,6 @@ Google Maps Geocode API
 Unsplash API
 TailwindCSS styling
 
-## screenshots
 ![Weather App](public/Screen_Shot.png) 
 
 
