@@ -2,11 +2,11 @@
 
 ReactJS app to geolocate the user, return city, and display the current weather. The app also displays an unsplash image that uses the current weather condition as a search term. The app will auto-update every 10 minutes.
 
-OpenWeather API
-Google Maps Geocode API
-Unsplash API
-TailwindCSS styling
-
+OpenWeather API  
+Google Maps Geocode API. 
+Unsplash API. 
+TailwindCSS styling. 
+  
 ![Weather App](public/Screen_Shot.png) 
 
 
