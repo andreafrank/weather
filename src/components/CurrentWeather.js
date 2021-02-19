@@ -94,7 +94,7 @@ const CurrentWeather  = () => {
 	        	backgroundSize: `cover`,
 	        }}>
 	        	<div className="flex h-screen justify-center items-center">
-		        	<div className="flex justify-center items-center bg-white bg-opacity-70 rounded shadow border p-6 w-64">
+		        	<div className="flex justify-center items-center bg-white bg-opacity-90 rounded shadow border p-6 w-64">
 			       		<ul>  
 					        <li className="text-3xl font-bold mb-4 mt-0"> {city} </li>          
 					        <li> {tempF} &deg;F </li> 

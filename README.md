@@ -7,6 +7,9 @@ Google Maps Geocode API
 Unsplash API
 TailwindCSS styling
 
+## screenshots
+![Weather App](public/Screen_Shot.png) 
+
 
 todo:
 - [ ] separate component logic into multiple files, use redux
