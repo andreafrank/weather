@@ -17,14 +17,14 @@ const CurrentWeather  = () => {
 	const [tempF, setTempF] 				= useState(undefined);
 	const [sunrise, setSunrise] 			= useState(undefined);
 	const [sunset, setSunset] 				= useState(undefined);
-	const [image, setImage] 				= useState(undefined);
+	// const [image, setImage] 				= useState(undefined);
 	const [imgurl, setImgurl]				= useState('');
 
 	const getWeatherImage = async (term) => {
 		const response = await unsplash.get('search/photos', {
 			params: { query: term }
 		});
-		setImage(response.data.results[0])
+		// setImage(response.data.results[0])
 
 		const first_item = response.data.results[0]
 		const url = first_item.urls.regular;
@@ -74,12 +74,12 @@ const CurrentWeather  = () => {
     	} else {
       		alert("geolocation not available. please allow browser to locate you.")
     	};
-
+    	console.log('useeffect2')
     	const timerID = setInterval(
     		() => getWeather(lat, lon),
       		600000
     	);  
-
+    	console.log(city)
     	clearInterval(timerID);
 
     }, []);
@@ -93,17 +93,19 @@ const CurrentWeather  = () => {
 	        	backgroundRepeat: `noRepeat`,
 	        	backgroundSize: `cover`,
 	        }}>
-	       		<ul>  
-			        <li> {city} </li>
-			        <li> {tempC} &deg;C </li>
-			        <li> feels like {feels_like.toFixed(0)} &deg;C </li>          
-			        <li> {tempF} &deg;F </li> 
-			        <li> feels like {(feels_like * 1.8 + 32).toFixed(0)} &deg;F </li>          
-			        <li> humidity: {humidity}% </li>
-			        <li> {description} </li>        
-			        <li>sunrise: {sunrise}</li>
-			        <li>sunset: {sunset}</li>
-		        </ul>
+	        	<div className="flex h-screen justify-center items-center">
+		        	<div className="flex justify-center items-center bg-white bg-opacity-70 rounded shadow border p-6 w-64">
+			       		<ul>  
+					        <li className="text-3xl font-bold mb-4 mt-0"> {city} </li>          
+					        <li> {tempF} &deg;F </li> 
+					        <li> feels like: {(feels_like * 1.8 + 32).toFixed(0)} &deg;F </li>          
+					        <li> humidity: {humidity}% </li>
+					        <li> {description} </li>        
+					        <li>sunrise: {sunrise}</li>
+					        <li>sunset: {sunset}</li>
+				        </ul>
+				    </div>
+			    </div>
 	        </div>
     	)
     } else {
