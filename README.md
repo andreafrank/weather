@@ -1,6 +1,8 @@
-#React weather app in process 
+#React weather app
 
 ReactJS app to geolocate the user, return city, and display the current weather. The app also displays an unsplash image that uses the current weather condition as a search term. The app will auto-update every 10 minutes.
+
+Used promises, async/await, and axios to compare / contrast usage. 
 
 OpenWeather API  
 Google Maps Geocode API   
